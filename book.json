@@ -1,0 +1,16 @@
+
+{
+    "title": "面试知识点汇总",
+    
+    "plugins": [ 
+        "-search",
+        "-lunr",
+        "search-pro",
+        "code",
+        "splitter",
+        "expandable-chapters",
+        "page-toc-button",
+        "back-to-top-button",
+        "-sharing"
+    ]
+}
