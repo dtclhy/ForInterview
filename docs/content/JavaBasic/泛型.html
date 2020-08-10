@@ -1,0 +1,643 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>泛型 · 面试知识点汇总</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="多态.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Java基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="基本类型和包装类型.html">
+            
+                <a href="基本类型和包装类型.html">
+            
+                    
+                    基本类型和包装类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="多态.html">
+            
+                <a href="多态.html">
+            
+                    
+                    多态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="泛型.html">
+            
+                <a href="泛型.html">
+            
+                    
+                    泛型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Java并发编程
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="基本类型和包装类型.html">
+            
+                <a href="基本类型和包装类型.html">
+            
+                    
+                    内存模型JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Test
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" >
+            
+                <span>
+            
+                    
+                    test1
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" >
+            
+                <span>
+            
+                    
+                    test2
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1.1" data-path="../MiddleWare/redis.html">
+            
+                <a href="../MiddleWare/redis.html">
+            
+                    
+                    test3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >泛型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;">&#x6CDB;&#x578B;&#x7684;&#x5B9A;&#x4E49;</h1>
+<p>&#x6CDB;&#x578B;&#xFF0C;&#x5373;&#x201C;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x201D;&#x3002;&#x5C31;&#x662F;&#x5C06;&#x7C7B;&#x578B;&#x7531;&#x539F;&#x6765;&#x7684;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x5316;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;&#x7C7B;&#x578B;&#x4E5F;&#x5B9A;&#x4E49;&#x6210;&#x53C2;&#x6570;&#x5F62;&#x5F0F;&#xFF08;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x7C7B;&#x578B;&#x5F62;&#x53C2;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4F7F;&#x7528;/&#x8C03;&#x7528;&#x65F6;&#x4F20;&#x5165;&#x5177;&#x4F53;&#x7684;&#x7C7B;&#x578B;&#xFF08;&#x7C7B;&#x578B;&#x5B9E;&#x53C2;&#xFF09;&#x3002;&#x5176;&#x5B58;&#x5728;&#x7684;&#x610F;&#x4E49;&#x5728;&#x4E8E;&#xFF1A;</p>
+<ul>
+<li><strong>&#x5F3A;&#x5236;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;</strong>&#xFF1A;Java &#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5BF9;&#x6CDB;&#x578B;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x5982;&#x679C;&#x8FDD;&#x53CD;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;&#x5728;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x89E3;&#x51B3;&#x7C7B;&#x578B;&#x9519;&#x8BEF;&#xFF0C;&#x80FD;&#x66F4;&#x6709;&#x6548;&#x7684;&#x51CF;&#x5C11; Bug</li>
+<li><strong>&#x6D88;&#x9664;&#x7C7B;&#x578B;&#x5F3A;&#x5236;&#x8F6C;&#x6362;</strong>&#xFF1A;&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x6CDB;&#x578B;&#xFF0C;&#x5219;&#x5728;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x7F16;&#x5199;&#x662F;&#x9700;&#x8981;&#x624B;&#x52A8;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</li>
+<li><strong>&#x5B9E;&#x73B0;&#x901A;&#x7528;&#x7B97;&#x6CD5;</strong>&#xFF1A;&#x901A;&#x8FC7;&#x6CDB;&#x578B;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x80FD;&#x5728;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x96C6;&#x5408;&#x4E0A;&#x5B9E;&#x73B0;&#x901A;&#x7528;&#x7B97;&#x6CD5;</li>
+</ul>
+<h1 id="&#x6CDB;&#x578B;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x63A5;&#x53E3;">&#x6CDB;&#x578B;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x63A5;&#x53E3;</h1>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+ * Description: &#x6CDB;&#x578B;&#x65B9;&#x6CD5;
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericMethod3</span> </span>{
+
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Animal</span> </span>{
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Animal&quot;</span>;
+        }
+    }
+
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Dog</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Animal</span> </span>{
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Dog&quot;</span>;
+        }
+    }
+
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fruit</span> </span>{
+        <span class="hljs-meta">@Override</span>
+        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Fruit&quot;</span>;
+        }
+    }
+
+    <span class="hljs-comment">//&#x6CDB;&#x578B;&#x7C7B;</span>
+    <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericClass</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show01</span><span class="hljs-params">(T t)</span> </span>{
+            System.out.println(t.toString());
+        }
+        <span class="hljs-comment">//&#x6CDB;&#x578B;&#x65B9;&#x6CD5;</span>
+        <span class="hljs-keyword">public</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show02</span><span class="hljs-params">(T t)</span> </span>{
+            System.out.println(t.toString());
+        }
+
+        <span class="hljs-keyword">public</span> &lt;K&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">show03</span><span class="hljs-params">(K k)</span> </span>{
+            System.out.println(k.toString());
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
+        Animal animal = <span class="hljs-keyword">new</span> Animal();
+        Dog dog = <span class="hljs-keyword">new</span> Dog();
+        Fruit fruit = <span class="hljs-keyword">new</span> Fruit();
+        GenericClass&lt;Animal&gt; genericClass = <span class="hljs-keyword">new</span> GenericClass&lt;&gt;();
+        <span class="hljs-comment">//&#x6CDB;&#x578B;&#x7C7B;&#x5728;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x9650;&#x5236;&#x4E86;&#x53C2;&#x6570;&#x7C7B;&#x578B;</span>
+        genericClass.show01(dog);
+<span class="hljs-comment">//        genericClass.show01(fruit);</span>
+
+        <span class="hljs-comment">//&#x6CDB;&#x578B;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x6307;&#x5B9A;</span>
+        genericClass.show02(dog);
+        genericClass.show02(fruit);
+
+        genericClass.&lt;Animal&gt;show03(animal);
+        genericClass.&lt;Animal&gt;show03(dog);
+        genericClass.show03(fruit);
+<span class="hljs-comment">//        genericClass.&lt;Dog&gt;show03(animal);</span>
+    }
+}
+</code></pre>
+<h1 id="&#x901A;&#x914D;&#x7B26;">&#x901A;&#x914D;&#x7B26;</h1>
+<ul>
+<li><code>&lt;? extends Parent&gt;</code> &#x6307;&#x5B9A;&#x4E86;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x4E0A;&#x754C;</li>
+<li><code>&lt;? super Child&gt;</code> &#x6307;&#x5B9A;&#x4E86;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x4E0B;&#x754C;</li>
+<li><code>&lt;?&gt;</code> &#x6307;&#x5B9A;&#x4E86;&#x6CA1;&#x6709;&#x9650;&#x5236;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B;</li>
+</ul>
+<h1 id="&#x7C7B;&#x578B;&#x64E6;&#x9664;&#xFF08;&#x6CDB;&#x578B;&#x7684;&#x5B9E;&#x73B0;&#xFF09;">&#x7C7B;&#x578B;&#x64E6;&#x9664;&#xFF08;&#x6CDB;&#x578B;&#x7684;&#x5B9E;&#x73B0;&#xFF09;</h1>
+<p>Java &#x8BED;&#x8A00;&#x5F15;&#x5165;&#x4E86;&#x6CDB;&#x578B;&#xFF0C;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x63D0;&#x4F9B;&#x66F4;&#x4E25;&#x683C;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x5E76;&#x652F;&#x6301;&#x6CDB;&#x578B;&#x7F16;&#x7A0B;&#x3002;&#x4E3A;&#x5B9E;&#x73B0;&#x6CDB;&#x578B; Java &#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#xFF1A;</p>
+<ol>
+<li>&#x66FF;&#x6362;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x4E3A;&#x4ED6;&#x4EEC;&#x7684;&#x4E0A;&#x754C;&#x6216;&#x8005; <code>Object</code>&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5B57;&#x8282;&#x7801;&#x4EC5;&#x5305;&#x542B;&#x666E;&#x901A;&#x7684;&#x7C7B;&#xFF0C;&#x63A5;&#x53E3;&#x548C;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x5FC5;&#x8981;&#x65F6;&#x63D2;&#x5165;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#xFF0C;&#x4EE5;&#x4FDD;&#x6301;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x3002;</li>
+<li>&#x751F;&#x6210;&#x6865;&#x63A5;&#x65B9;&#x6CD5;&#x4EE5;&#x5728;&#x6269;&#x5C55;&#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x4E2D;&#x4FDD;&#x7559;&#x591A;&#x6001;&#x3002;</li>
+</ol>
+<p>&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x53EF;&#x786E;&#x4FDD;&#x4E0D;&#x4F1A;&#x4E3A;&#x53C2;&#x6570;&#x5316;&#x7C7B;&#x578B;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x7C7B;&#xFF1B;&#x56E0;&#x6B64;&#xFF0C;&#x6CDB;&#x578B;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x8FD0;&#x884C;&#x65F6;&#x5F00;&#x9500;&#x3002;</p>
+<h3 id="&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x64E6;&#x9664;">&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x64E6;&#x9664;</h3>
+<p>&#x5728;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;Java &#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x64E6;&#x9664;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x662F;&#x6709;&#x754C;&#x7684;&#xFF0C;&#x5219;&#x5C06;&#x6BCF;&#x4E2A;&#x53C2;&#x6570;&#x66FF;&#x6362;&#x4E3A;&#x5176;&#x7B2C;&#x4E00;&#x4E2A;&#x8FB9;&#x754C;&#xFF1B;&#x5982;&#x679C;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#x662F;&#x65E0;&#x754C;&#x7684;&#xFF0C;&#x5219;&#x5C06;&#x5176;&#x66FF;&#x6362;&#x4E3A; <code>Object</code>&#x3002;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+    <span class="hljs-keyword">private</span> T data;
+    <span class="hljs-keyword">private</span> Node&lt;T&gt; next;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(T data, Node&lt;T&gt; next)</span> </span>{
+        <span class="hljs-keyword">this</span>.data = data;
+        <span class="hljs-keyword">this</span>.next = next;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> data; }
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x7531;&#x4E8E; <code>T</code> &#x662F;&#x65E0;&#x754C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+
+    <span class="hljs-keyword">private</span> Object data;
+    <span class="hljs-keyword">private</span> Node next;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(Object data, Node next)</span> </span>{
+        <span class="hljs-keyword">this</span>.data = data;
+        <span class="hljs-keyword">this</span>.next = next;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> data; }
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x800C;&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x7684;&#x64E6;&#x9664;&#x53C8;&#x4E0D;&#x4E00;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Comparable</span>&lt;<span class="hljs-title">T</span>&gt;&gt; </span>{
+
+    <span class="hljs-keyword">private</span> T data;
+    <span class="hljs-keyword">private</span> Node&lt;T&gt; next;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(T data, Node&lt;T&gt; next)</span> </span>{
+        <span class="hljs-keyword">this</span>.data = data;
+        <span class="hljs-keyword">this</span>.next = next;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> data; }
+    <span class="hljs-comment">// ...</span>
+}
+
+<span class="hljs-comment">//&#x64E6;&#x9664;&#x540E;</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+
+    <span class="hljs-keyword">private</span> Comparable data;
+    <span class="hljs-keyword">private</span> Node next;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(Comparable data, Node next)</span> </span>{
+        <span class="hljs-keyword">this</span>.data = data;
+        <span class="hljs-keyword">this</span>.next = next;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Comparable <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> data; }
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<h3 id="&#x6CDB;&#x578B;&#x65B9;&#x6CD5;&#x64E6;&#x9664;">&#x6CDB;&#x578B;&#x65B9;&#x6CD5;&#x64E6;&#x9664;</h3>
+<p>&#x6CDB;&#x578B;&#x65B9;&#x6CD5;&#x7684;&#x64E6;&#x9664;&#x89C4;&#x5219;&#x548C;&#x6CDB;&#x578B;&#x7C7B;&#x578B;&#x7684;&#x64E6;&#x9664;&#x89C4;&#x5219;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-comment">// Counts the number of occurrences of elem in anArray.</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">(T[] anArray, T elem)</span> </span>{
+    <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (T e : anArray)
+        <span class="hljs-keyword">if</span> (e.equals(elem))
+            ++cnt;
+        <span class="hljs-keyword">return</span> cnt;
+}
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T extends Shape&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">(T shape)</span> </span>{ <span class="hljs-comment">/* ... */</span> }
+
+<span class="hljs-comment">//&#x64E6;&#x9664;&#x540E;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">count</span><span class="hljs-params">(Object[] anArray, Object elem)</span> </span>{
+    <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (Object e : anArray)
+        <span class="hljs-keyword">if</span> (e.equals(elem))
+            ++cnt;
+        <span class="hljs-keyword">return</span> cnt;
+}
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">draw</span><span class="hljs-params">(Shape shape)</span> </span>{ <span class="hljs-comment">/* ... */</span> }
+</code></pre>
+<h3 id="&#x6865;&#x63A5;&#x65B9;&#x6CD5;">&#x6865;&#x63A5;&#x65B9;&#x6CD5;</h3>
+<p>&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x7C7B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">T</span>&gt; </span>{
+
+    <span class="hljs-keyword">public</span> T data;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(T data)</span> </span>{ <span class="hljs-keyword">this</span>.data = data; }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(T data)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Node.setData&quot;</span>);
+        <span class="hljs-keyword">this</span>.data = data;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyNode</span><span class="hljs-params">(Integer data)</span> </span>{ <span class="hljs-keyword">super</span>(data); }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Integer data)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;MyNode.setData&quot;</span>);
+        <span class="hljs-keyword">super</span>.setData(data);
+    }
+}
+</code></pre>
+<p>&#x7C7B;&#x578B;&#x64E6;&#x9664;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span> </span>{
+
+    <span class="hljs-keyword">public</span> Object data;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Node</span><span class="hljs-params">(Object data)</span> </span>{ <span class="hljs-keyword">this</span>.data = data; }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Object data)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;Node.setData&quot;</span>);
+        <span class="hljs-keyword">this</span>.data = data;
+    }
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Node</span> </span>{
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MyNode</span><span class="hljs-params">(Integer data)</span> </span>{ <span class="hljs-keyword">super</span>(data); }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Integer data)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;MyNode.setData&quot;</span>);
+        <span class="hljs-keyword">super</span>.setData(data);
+    }
+}
+</code></pre>
+<p>&#x5728;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x540E;&#xFF0C;&#x65B9;&#x6CD5;&#x7684;&#x7B7E;&#x540D;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5BFC;&#x81F4;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x751F;&#x6548;&#xFF0C;<code>Node.setData(T)</code> &#x53D8;&#x6210;&#x4E86; <code>Node.setData(Object)</code>&#x3002;&#x4E3A;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;Java &#x7F16;&#x8BD1;&#x5668;&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x4E2D;&#x751F;&#x6210;&#x6865;&#x63A5;&#x65B9;&#x6CD5;&#xFF0C;&#x5BF9;&#x4E8E; <code>MyNode</code> &#x5176;&#x751F;&#x6210;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyNode</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Node</span> </span>{
+
+    <span class="hljs-comment">// Bridge method generated by the compiler</span>
+    <span class="hljs-comment">//</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Object data)</span> </span>{
+        setData((Integer) data);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setData</span><span class="hljs-params">(Integer data)</span> </span>{
+        System.out.println(<span class="hljs-string">&quot;MyNode.setData&quot;</span>);
+        <span class="hljs-keyword">super</span>.setData(data);
+    }
+
+    <span class="hljs-comment">// ...</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x5728;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x4E4B;&#x540E;&#xFF0C;<code>MyNode</code> &#x5177;&#x6709;&#x4E0E; <code>Node</code> &#x7684; <code>setData(Object)</code> &#x65B9;&#x6CD5;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x7B7E;&#x540D;&#x7684;&#x6865;&#x63A5;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x59D4;&#x6258;&#x7ED9;&#x7684; <code>setData(Integer)</code> &#x65B9;&#x6CD5;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="多态.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 多态">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"泛型","level":"1.2.3","depth":2,"next":{"title":"Java并发编程","level":"1.3","depth":1,"ref":"","articles":[{"title":"内存模型JMM","level":"1.3.1","depth":2,"path":"content/JavaBasic/基本类型和包装类型.md","ref":"content/JavaBasic/基本类型和包装类型.md","articles":[]}]},"previous":{"title":"多态","level":"1.2.2","depth":2,"path":"content/JavaBasic/多态.md","ref":"content/JavaBasic/多态.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search","-lunr","search-pro","code","splitter","expandable-chapters","page-toc-button","back-to-top-button","-sharing"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"page-toc-button":{},"back-to-top-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"面试知识点汇总","gitbook":"*"},"file":{"path":"content/JavaBasic/泛型.md","mtime":"2020-08-10T14:29:42.063Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-08-10T14:50:50.359Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
