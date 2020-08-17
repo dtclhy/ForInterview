@@ -5,7 +5,7 @@
   * [多态](content/JavaBasic/多态.md)
   * [泛型](content/JavaBasic/泛型.md)
 * [Java并发编程]()
-  * [内存模型JMM](content/JavaBasic/基本类型和包装类型.md)
+  * [内存模型JMM](content/JavaConcurrency/JMM.md)
 * [Test]()
   * [test1]()
     * [test2]()
