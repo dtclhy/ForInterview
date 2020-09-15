@@ -104,3 +104,4 @@ class VolatileBarrierExample  {
 
 # 总线风暴
 
+由于Volatile的MESI缓存一致性协议，需要不断的从主内存嗅探和cas不断循环，无效交互会导致总线带宽达到峰值。
