@@ -1,6 +1,8 @@
 
 {
     "title": "面试知识点汇总",
+
+     "styles" :{"website" : "styles/website.css"},
     
     "plugins": [ 
         "-search",
@@ -11,6 +13,7 @@
         "expandable-chapters",
         "page-toc-button",
         "back-to-top-button",
+        "popup",
         "-sharing"
     ]
 }
