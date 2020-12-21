@@ -45,6 +45,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,boolean evict) {
   }        
   ++modCount;   
   //判断是否扩容
+  //hashmap中的元素个数超过数组大小*loadFactor
   if (++size > threshold)           
     resize();        
   afterNodeInsertion(evict);      
@@ -81,3 +82,6 @@ root == null|| (movable&& (root.right == null|| (rl = root.left) == null
             || rl.left == null)
 ```
 
+# Get()方法
+
+get(Object key)流程，通过传入的key通过hash()算法得到hash值，在通过(n - 1) & hash找到数组下标，如果数组下标所对应的node值正好key一样就返回，否则找到node.next找到下一个节点，看是否是treenNode，如果是，遍历红黑树找到对应node，如果不是遍历链表找到node。
