@@ -1,3 +1,22 @@
+# Executor框架
+
+Java多线程程序通常把应用分解为若干个任务，然后使用用户级的调度器（Executor框架）将这些任务映射为固定数量的线程。
+
+Executor框架主要由3大部分组成如下:
+
+任务： `Runnable`或`Callable`接口及其实现类
+
+任务执行器： 主要是`Executor`及扩展Executor的`ExecutorService`接口的一些实现类。Executor框架有两个重要的实现类，一个是线程池执器`ThreadPoolExecutor`、另一个是定时任务执行器`ScheduledThreadPoolExecutor` .
+
+任务的结果: `Future`接口及其默认实现`FutureTask`
+
+## Runnable和Callable
+
+1. Runnable执行方法是run(),Callable是call()
+2. 实现Runnable接口的任务线程无返回值；实现Callable接口的任务线程能返回执行结果，调用FutureTask.get()方法实现
+3. call方法可以抛出异常，run方法若有异常只能在内部消化
+4. Runnable可以作为Thread构造器的参数，通过开启新的线程来执行，也可以通过线程池来执行。而Callable只能通过线程池执行。
+
 # Java中提供的线程池
 
 ThreadPoolExecutor 默认线程池 
@@ -58,6 +77,12 @@ public static ExecutorService newCachedThreadPool() {
 3. STOP：不接收新任务，不处理已添加的任务，并且会中断正在处理的任务。调用线程池的shutdownNow()。
 4. TIDYING：当所有的任务已终止，ctl记录的”任务数量”为0，线程池会变为TIDYING 状态。当线程池变为TIDYING状态时，会执行钩子函数terminated()。terminated()在 ThreadPoolExecutor类中是空的，若用户想在线程池变为TIDYING时，进行相应的处理；可以通过重载terminated()函数来实现。由STOP -> TIDYING。
 5. TERMINATED：线程池彻底终止，就变成TERMINATED状态。线程池处在TIDYING状态时，执行完terminated()之后，就会由 TIDYING - > TERMINATED。
+
+## 优点
+
+- **降低资源消耗**：通过重复利用已创建的线程降低线程创建和销毁造成的消耗。
+- **提高响应速度**：当任务到达时，可以不需要等待线程创建就能立即执行。
+- **提高线程的可管理性**：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，监控和调优。
 
 # 原理分析
 

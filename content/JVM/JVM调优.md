@@ -32,7 +32,7 @@ jmap -dump，堆内存dump
 
 查看线程堆栈信息。jstack pid。
 
-## top
+# top
 
 1. top命令查看各个进程的cpu使用情况，默认按cpu使用率排序。
 
@@ -61,6 +61,8 @@ ParNew：表明本次GC发生在年轻代并且使用的是ParNew垃圾收集器
 0.0025301 secs：该内存区域GC耗时，单位是秒
 
 [Times: user=0.04 sys=0.00, real=0.01 secs]：分别表示用户态耗时，内核态耗时和总耗时
+
+# 频繁FULL GC伴随OOM
 
 
 

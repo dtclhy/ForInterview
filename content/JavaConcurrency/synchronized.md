@@ -70,3 +70,16 @@ monitor 依赖操作系统的 MutexLock(互斥锁)来实现的, 线程被阻塞�
 
 
 任意线程对 Object(Object 由 synchronized 保护)的访问，首先要获得 Object 的监视器。如果获取失败，线程进入同步队列，线程状态变为 BLOCKED。当访问 Object 的前驱(获得了锁的线程)释放了锁，则该释放操作唤醒阻塞在同步队列中的线程，使其重新尝试对监视器的获取。
+
+# Lock区别
+
+Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现；
+
+synchronized在发生异常时，会自动释放线程占有的锁，因此不会导致死锁现象发生；而Lock在发生异常时，如果没有主动通过unLock()去释放锁，则很可能造成死锁现象，因此使用Lock时需要在finally块中释放锁；
+
+Lock可以让等待锁的线程响应中断，而synchronized却不行，使用synchronized时，等待的线程会一直等待下去，不能够响应中断　
+
+通过Lock可以知道有没有成功获取锁，而synchronized却无法办到。　　
+
+synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序。ReentrantLock可以设置
+

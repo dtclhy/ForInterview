@@ -2,15 +2,57 @@
 
 面向切面编程。可以通过预编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术。
 
-**切面(Aspect)：**切面是通知和切点的结合
+**切面(Aspect)：**（Aspect) 一个关注点的模块化，就比较笼统的一个概念，关注点可能横切多个对象。对应的注解有@Aspect
 
-**连接点(Joinpoint)：**程序执行过程中的某一行为，例如，MemberService .get 的调用
+**连接点(Joinpoint)：**（Joinpoint）在程序执行过程中某个特定的点，一个连接点总是代表一个方法的执行。
 
-**通知(Advice)：**切面对于某个连接点所产生的动作
+**通知(Advice)：**（Advice) 通知表示在一个连接点执行的具体的动作，比如After Before 表明通知的具体动作
 
-**切入点(Pointcut)：**匹配连接点的断言，在 AOP 中通知和一个切入点表达式关联
+**切入点(Pointcut)：**（Pointcut）通过一个表达式去表明我所定义的通知在那个地点具体执行。
 
 **AOP 代理：**TargetObject 实现了接口时采用 JDK 动态代理，反之，采用 CGLib 代理
+
+# 分类
+
+**前置通知：**（Before advice）表明在连接点执行之前执行的动作。
+
+**后置通知：**（After returning advice）在某个连接点完成后的通知，比如一个方法没有抛出任何异常，正常返回。
+
+**环绕通知：**（Around Advice) 环绕可以看作是包含前置通知和后置通知的一个通知，先了解，后面具体理解。
+
+**异常通知：**（After throwing advice) 在方法异常推出时候执行的通知。
+
+**最终通知：**（After advice) 在连接点退出时候执行的通知。不论是正常退出还是异常退出。
+
+# 使用
+
+**定义切面类**
+
+@Aspect 注解将找个类定义为一个切面对象，通过@Component注解将这个类对象注入到IOC容器，交给Spring来进行管理。
+
+**定义切入点**
+
+```java
+@Pointcut("execution(public * com.example.demo.controller.*.*(..))")
+    public void controllerLog(){}
+```
+
+**环绕通知方法**
+
+```java
+@Around("controllerLog()")
+    public Object aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        logger.info("环绕通知开始-->");
+        Object result = null;
+        /*proceed()方法表示连接点方法执行 result 为连接点方法的返回值*/
+        result = proceedingJoinPoint.proceed();
+        logger.info("环绕通知返回值-->" + result);
+        logger.info("环绕通知结束-->");
+        return result;
+    }
+```
+
+
 
 # AOP生成
 

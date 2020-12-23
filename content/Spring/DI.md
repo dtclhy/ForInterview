@@ -7,8 +7,19 @@ DI(Dependency Injection)依赖注入：就是指对象是被动接受依赖类�
 当 Spring IOC 容器完成了 Bean 定义资源的定位、载入和解析注册以后，IOC 容器中已经管理类 Bean 定义的相关数据，但是此时 IOC 容器还没有对所管理的 Bean 进行依赖注入，依赖注入在以下两种情况 发生:
 
 1. 用户第一次调用 getBean()方法时，IOC 容器触发依赖注入。 
-
 2. 当用户在配置文件中将\<bean>元素配置了 lazy-init=false 属性，即让容器在解析注册 Bean 定义时进行预实例化，触发依赖注入。
+
+# 依赖注入方式
+
+**setter方法注入**
+
+属性注入即通过 setXxx() 方法注入 Bean 的属性值或者依赖对象。属性注入要求 Bean 提供一个默认的构造函数，并为需要注入的属性提供对应的 Setter 方法 。
+
+**构造函数注入**
+
+构造函数注入保证一些必要的属性在 Bean 实例化时就得到设置，这样 Bean 在实例化后就可以使用。使用构造函数注入的前提是 Bean 必须提供带参的构造函数
+
+**基于注解注入**
 
 # getBean方式流程
 
@@ -26,7 +37,7 @@ getBean()---->doGetBean()----->createBean()----->createBeanInstance()方法，�
 
 ## 3.执行实例化
 
-如果 Bean 有方法被覆盖了，则使用 JDK 的反射机制进行实例化，否 则使用 CGLib 进行实例化。
+如果 Bean 有方法被覆盖了，则使用 JDK 的反射机制进行实例化，否则使用 CGLib 进行实例化。
 
 ## 4.准备依赖注入
 
@@ -68,6 +79,12 @@ getBean()---->doGetBean()----->createBean()----->createBeanInstance()方法，�
 如果还是获取不到，且允许singletonFactories(allowEarlyReference=true)通过getObject()获取。就从三级缓存singletonFactory.getObject()获取。如果获取到了就从singletonFactories中移除，并且放进earlySingletonObjects。其实也就是从三级缓存移动到了二级缓存
 
 加入singletonFactories三级缓存的前提是执行了构造器，所以构造器的循环依赖没法解决
+
+一级缓存：用于存放完全初始化好的 bean，ConcurrentHashMap<String, Object>
+
+二级缓存：存放原始的 bean 对象（尚未填充属性），new HashMap<String, Object>
+
+三级级缓存：存放 bean 工厂对象，Map<String, ObjectFactory<?>> 
 
 ### 三级缓存的目的
 

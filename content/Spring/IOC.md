@@ -59,7 +59,7 @@ public void refresh() throws BeansException, IllegalStateException {
     initMessageSource();
     // STEP 8: 初始化容器事件传播器 
     initApplicationEventMulticaster();
-    // STEP 9: 初始化一些特殊的bean
+    // STEP 9: 初始化一些特殊的bean，初始化 Spring MVC 的九大组件
     onRefresh();
     // STEP 10: 注册一些监听器
     registerListeners();
